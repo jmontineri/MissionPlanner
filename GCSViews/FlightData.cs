@@ -183,7 +183,6 @@ namespace MissionPlanner.GCSViews
             //
             mymap = gMapControl1;
             myhud = hud1;
-            MainHcopy = MainH;
 
             mymap.Paint += mymap_Paint;
 
@@ -332,6 +331,8 @@ namespace MissionPlanner.GCSViews
 
             // first run
             MainV2_AdvancedChanged(null, null);
+
+            Messagetabtimer.Start();
         }
 
         protected override void OnInvalidated(InvalidateEventArgs e)
@@ -708,10 +709,6 @@ namespace MissionPlanner.GCSViews
             if (Settings.Instance["CHK_autopan"] != null)
                 CHK_autopan.Checked = Settings.Instance.GetBoolean("CHK_autopan");
 
-            if (Settings.Instance.ContainsKey("FlightSplitter"))
-            {
-                MainH.SplitterDistance = Settings.Instance.GetInt32("FlightSplitter");
-            }
 
             if (Settings.Instance.ContainsKey("russian_hud"))
             {
@@ -1654,10 +1651,10 @@ namespace MissionPlanner.GCSViews
                     {
                         MainV2.comPort.MAV.cs.UpdateCurrentSettings(bindingSourceStatusTab);
                     }
-                    else if (tabControlactions.SelectedTab == tabQuick)
-                    {
-                        MainV2.comPort.MAV.cs.UpdateCurrentSettings(bindingSourceQuickTab);
-                    }
+                    //else if (tabControlactions.SelectedTab == tabQuick)
+                    //{
+                    //    MainV2.comPort.MAV.cs.UpdateCurrentSettings(bindingSourceQuickTab);
+                    //}
                     else if (tabControlactions.SelectedTab == tabGauges)
                     {
                         MainV2.comPort.MAV.cs.UpdateCurrentSettings(bindingSourceGaugesTab);
@@ -2589,10 +2586,8 @@ namespace MissionPlanner.GCSViews
             if (huddropout)
                 return;
 
-            SubMainLeft.Panel1Collapsed = true;
             Form dropout = new Form();
             dropout.Size = new Size(hud1.Width, hud1.Height + 20);
-            SubMainLeft.Panel1.Controls.Remove(hud1);
             dropout.Controls.Add(hud1);
             dropout.Resize += dropout_Resize;
             dropout.FormClosed += dropout_FormClosed;
@@ -2603,8 +2598,6 @@ namespace MissionPlanner.GCSViews
         void dropout_FormClosed(object sender, FormClosedEventArgs e)
         {
             //GetFormFromGuid(GetOrCreateGuid("fd_hud_guid")).Controls.Add(hud1);
-            SubMainLeft.Panel1.Controls.Add(hud1);
-            SubMainLeft.Panel1Collapsed = false;
             huddropout = false;
         }
 
@@ -2638,15 +2631,9 @@ namespace MissionPlanner.GCSViews
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Messagetabtimer.Stop();
-
             if (tabControlactions.SelectedTab == tabStatus)
             {
                 tabStatus_Resize(sender, e);
-            }
-            else if (tabControlactions.SelectedTab == tabPagemessages)
-            {
-                Messagetabtimer.Start();
             }
             else
             {
@@ -2657,9 +2644,6 @@ namespace MissionPlanner.GCSViews
                 //  tabStatus.Controls.Remove(temp);
                 // }
 
-                if (tabControlactions.SelectedTab == tabQuick)
-                {
-                }
             }
         }
 
@@ -3442,18 +3426,10 @@ namespace MissionPlanner.GCSViews
             }
         }
 
-        private void tabQuick_Resize(object sender, EventArgs e)
-        {
-            tableLayoutPanelQuick.Width = tabQuick.Width;
-            tableLayoutPanelQuick.AutoScroll = false;
-        }
 
         private void hud1_Resize(object sender, EventArgs e)
         {
             Console.WriteLine("HUD resize " + hud1.Width + " " + hud1.Height); // +"\n"+ System.Environment.StackTrace);
-
-            if (hud1.Parent == this.SubMainLeft.Panel1)
-                SubMainLeft.SplitterDistance = hud1.Height;
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4140,32 +4116,6 @@ namespace MissionPlanner.GCSViews
             Vibration frm = new Vibration();
             frm.TopMost = true;
             frm.Show();
-        }
-
-        private void SwapHud1AndMap()
-        {
-            if (this.huddropout)
-                return;
-
-            MainH.Panel2.SuspendLayout();
-
-            if (this.SubMainLeft.Panel1.Controls.Contains(hud1))
-            {
-                MainH.Panel2.Controls.Add(hud1);
-                SubMainLeft.Panel1.Controls.Add(tableMap);
-            }
-            else
-            {
-                MainH.Panel2.Controls.Add(tableMap);
-                SubMainLeft.Panel1.Controls.Add(hud1);
-            }
-
-            MainH.Panel2.ResumeLayout();
-        }
-
-        private void swapWithMapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SwapHud1AndMap();
         }
 
         private void BUT_abortland_Click(object sender, EventArgs e)
