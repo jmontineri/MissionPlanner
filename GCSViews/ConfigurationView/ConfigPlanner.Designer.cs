@@ -97,6 +97,10 @@
             this.chk_tfr = new System.Windows.Forms.CheckBox();
             this.chk_temp = new System.Windows.Forms.CheckBox();
             this.chk_norcreceiver = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CMB_SecondaryVideo = new System.Windows.Forms.ComboBox();
+            this.Vid2Stop = new MissionPlanner.Controls.MyButton();
+            this.Vid2Start = new MissionPlanner.Controls.MyButton();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_tracklength)).BeginInit();
             this.SuspendLayout();
             // 
@@ -630,10 +634,42 @@
             this.chk_norcreceiver.UseVisualStyleBackColor = true;
             this.chk_norcreceiver.CheckedChanged += new System.EventHandler(this.chk_norcreceiver_CheckedChanged);
             // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // CMB_SecondaryVideo
+            // 
+            this.CMB_SecondaryVideo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CMB_SecondaryVideo.FormattingEnabled = true;
+            resources.ApplyResources(this.CMB_SecondaryVideo, "CMB_SecondaryVideo");
+            this.CMB_SecondaryVideo.Name = "CMB_SecondaryVideo";
+            this.CMB_SecondaryVideo.SelectedIndexChanged += new System.EventHandler(this.CMB_SecondaryVideo_SelectedIndexChanged);
+            this.CMB_SecondaryVideo.Click += new System.EventHandler(this.CMB_secondaryVideo_Click);
+            // 
+            // Vid2Stop
+            // 
+            resources.ApplyResources(this.Vid2Stop, "Vid2Stop");
+            this.Vid2Stop.Name = "Vid2Stop";
+            this.Vid2Stop.UseVisualStyleBackColor = true;
+            this.Vid2Stop.Click += new System.EventHandler(this.Vid2Stop_Click);
+            // 
+            // Vid2Start
+            // 
+            resources.ApplyResources(this.Vid2Start, "Vid2Start");
+            this.Vid2Start.Name = "Vid2Start";
+            this.Vid2Start.UseVisualStyleBackColor = true;
+            this.Vid2Start.Click += new System.EventHandler(this.Vid2Start_Click);
+            // 
             // ConfigPlanner
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.CMB_SecondaryVideo);
+            this.Controls.Add(this.Vid2Stop);
+            this.Controls.Add(this.Vid2Start);
             this.Controls.Add(this.chk_norcreceiver);
             this.Controls.Add(this.chk_temp);
             this.Controls.Add(this.chk_tfr);
@@ -780,5 +816,9 @@
         private System.Windows.Forms.CheckBox chk_tfr;
         private System.Windows.Forms.CheckBox chk_temp;
         private System.Windows.Forms.CheckBox chk_norcreceiver;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox CMB_SecondaryVideo;
+        private Controls.MyButton Vid2Stop;
+        private Controls.MyButton Vid2Start;
     }
 }

@@ -2254,6 +2254,11 @@ namespace MissionPlanner.GCSViews
         }
         
 
+        void secondaryCam_camImage(Image camImage)
+        {
+            pictureBox1.Image = camImage;
+        }
+
         void cam_camimage(Image camimage)
         {
             hud1.bgimage = camimage;
@@ -4172,6 +4177,17 @@ namespace MissionPlanner.GCSViews
                 MainV2.cam.Start();
 
                 MainV2.cam.camimage += new CamImage(cam_camimage);
+
+                try
+                {
+                    MainV2.secondaryCam = new Capture(Settings.Instance.GetInt32("secondary_video_device"), new AMMediaType());
+
+                    MainV2.secondaryCam.Start();
+
+                    MainV2.secondaryCam.camimage += new CamImage(secondaryCam_camImage);
+                }
+                catch { }
+
             }
             catch (Exception ex)
             {
@@ -4319,6 +4335,11 @@ namespace MissionPlanner.GCSViews
         private void onOffCameraOverlapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CameraOverlap = onOffCameraOverlapToolStripMenuItem.Checked;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

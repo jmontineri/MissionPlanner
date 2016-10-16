@@ -159,25 +159,25 @@
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
             this.InfoBarVsDisplayHotbar = new System.Windows.Forms.SplitContainer();
             this.HotbarVsDisplay = new System.Windows.Forms.SplitContainer();
-            this.HudVsMapMisc = new System.Windows.Forms.SplitContainer();
-            this.CamVsMessages = new System.Windows.Forms.SplitContainer();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.MapVsMisc = new System.Windows.Forms.SplitContainer();
-            this.swapWithMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.HudVsMapMisc = new System.Windows.Forms.SplitContainer();
+            this.CamVsMessages = new System.Windows.Forms.SplitContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.MapVsMisc = new System.Windows.Forms.SplitContainer();
+            this.swapWithMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripHud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
             this.tabControlactions.SuspendLayout();
@@ -216,6 +216,7 @@
             this.HotbarVsDisplay.Panel1.SuspendLayout();
             this.HotbarVsDisplay.Panel2.SuspendLayout();
             this.HotbarVsDisplay.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HudVsMapMisc)).BeginInit();
             this.HudVsMapMisc.Panel1.SuspendLayout();
             this.HudVsMapMisc.Panel2.SuspendLayout();
@@ -224,6 +225,7 @@
             this.CamVsMessages.Panel1.SuspendLayout();
             this.CamVsMessages.Panel2.SuspendLayout();
             this.CamVsMessages.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -232,8 +234,6 @@
             this.MapVsMisc.Panel1.SuspendLayout();
             this.MapVsMisc.Panel2.SuspendLayout();
             this.MapVsMisc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // hud1
@@ -2011,6 +2011,104 @@
             // 
             this.HotbarVsDisplay.Panel2.Controls.Add(this.HudVsMapMisc);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AllowItemReorder = true;
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
+            this.toolStrip1.CanOverflow = false;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton16,
+            this.toolStripButton15,
+            this.toolStripButton14,
+            this.toolStripButton13,
+            this.toolStripButton12,
+            this.toolStripButton11,
+            this.toolStripButton7,
+            this.toolStripButton2,
+            this.toolStripButton1,
+            this.toolStripButton8,
+            this.toolStripButton9,
+            this.toolStripButton10});
+            this.toolStrip1.Name = "toolStrip1";
+            // 
+            // toolStripButton16
+            // 
+            resources.ApplyResources(this.toolStripButton16, "toolStripButton16");
+            this.toolStripButton16.Name = "toolStripButton16";
+            this.toolStripButton16.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton15
+            // 
+            resources.ApplyResources(this.toolStripButton15, "toolStripButton15");
+            this.toolStripButton15.Name = "toolStripButton15";
+            this.toolStripButton15.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton14
+            // 
+            resources.ApplyResources(this.toolStripButton14, "toolStripButton14");
+            this.toolStripButton14.Name = "toolStripButton14";
+            this.toolStripButton14.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton13
+            // 
+            resources.ApplyResources(this.toolStripButton13, "toolStripButton13");
+            this.toolStripButton13.Name = "toolStripButton13";
+            this.toolStripButton13.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton12
+            // 
+            resources.ApplyResources(this.toolStripButton12, "toolStripButton12");
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton11
+            // 
+            resources.ApplyResources(this.toolStripButton11, "toolStripButton11");
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton7, "toolStripButton7");
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton8, "toolStripButton8");
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton9, "toolStripButton9");
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton10, "toolStripButton10");
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
             // HudVsMapMisc
             // 
             resources.ApplyResources(this.HudVsMapMisc, "HudVsMapMisc");
@@ -2036,6 +2134,13 @@
             // CamVsMessages.Panel2
             // 
             this.CamVsMessages.Panel2.Controls.Add(this.txt_messagebox);
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // splitContainer3
             // 
@@ -2067,110 +2172,6 @@
             // 
             this.swapWithMapToolStripMenuItem.Name = "swapWithMapToolStripMenuItem";
             resources.ApplyResources(this.swapWithMapToolStripMenuItem, "swapWithMapToolStripMenuItem");
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.AllowItemReorder = true;
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
-            this.toolStrip1.CanOverflow = false;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton16,
-            this.toolStripButton15,
-            this.toolStripButton14,
-            this.toolStripButton13,
-            this.toolStripButton12,
-            this.toolStripButton11,
-            this.toolStripButton7,
-            this.toolStripButton2,
-            this.toolStripButton1,
-            this.toolStripButton8,
-            this.toolStripButton9,
-            this.toolStripButton10});
-            this.toolStrip1.Name = "toolStrip1";
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripButton7, "toolStripButton7");
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripButton8, "toolStripButton8");
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripButton9, "toolStripButton9");
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripButton10, "toolStripButton10");
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton11
-            // 
-            resources.ApplyResources(this.toolStripButton11, "toolStripButton11");
-            this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton12
-            // 
-            resources.ApplyResources(this.toolStripButton12, "toolStripButton12");
-            this.toolStripButton12.Name = "toolStripButton12";
-            this.toolStripButton12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton13
-            // 
-            resources.ApplyResources(this.toolStripButton13, "toolStripButton13");
-            this.toolStripButton13.Name = "toolStripButton13";
-            this.toolStripButton13.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton14
-            // 
-            resources.ApplyResources(this.toolStripButton14, "toolStripButton14");
-            this.toolStripButton14.Name = "toolStripButton14";
-            this.toolStripButton14.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton15
-            // 
-            resources.ApplyResources(this.toolStripButton15, "toolStripButton15");
-            this.toolStripButton15.Name = "toolStripButton15";
-            this.toolStripButton15.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton16
-            // 
-            resources.ApplyResources(this.toolStripButton16, "toolStripButton16");
-            this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             // 
             // FlightData
             // 
@@ -2226,6 +2227,8 @@
             this.HotbarVsDisplay.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HotbarVsDisplay)).EndInit();
             this.HotbarVsDisplay.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.HudVsMapMisc.Panel1.ResumeLayout(false);
             this.HudVsMapMisc.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HudVsMapMisc)).EndInit();
@@ -2235,6 +2238,7 @@
             this.CamVsMessages.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CamVsMessages)).EndInit();
             this.CamVsMessages.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
@@ -2243,9 +2247,6 @@
             this.MapVsMisc.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MapVsMisc)).EndInit();
             this.MapVsMisc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }

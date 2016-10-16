@@ -325,6 +325,11 @@ namespace MissionPlanner
         public static WebCamService.Capture cam = null;
 
         /// <summary>
+        /// Secondary camera stream
+        /// </summary>
+        public static WebCamService.Capture secondaryCam = null;
+
+        /// <summary>
         /// controls the main serial reader thread
         /// </summary>
         bool serialThread = false;

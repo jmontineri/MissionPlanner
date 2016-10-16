@@ -26,6 +26,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         }
 
+        private void OnLogDirTextChanged(object sender, EventArgs e)
+        {
+        }
+
 
         // Called every time that this control is made current in the backstage view
         public void Activate()
@@ -163,6 +167,36 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             startup = false;
         }
 
+        private void Vid2Start_Click(object sender, EventArgs e)
+        {
+            if (MainV2.MONO)
+                return;
+
+            // stop first
+            Vid2Stop_Click(sender, e);
+
+            var bmp = (GCSBitmapInfo) CMB_videoresolutions.SelectedItem;
+
+            try
+            {
+                MainV2.secondaryCam = new Capture(CMB_SecondaryVideo.SelectedIndex, bmp.Media);
+
+                MainV2.secondaryCam.Start();
+
+                Settings.Instance["secondary_video_device"] = CMB_SecondaryVideo.SelectedIndex.ToString();
+
+                Settings.Instance["secondary_video_options"] = CMB_videoresolutions.SelectedIndex.ToString();
+
+                Vid2Start.Enabled = false;
+            }
+
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show("Camera Fail: " + ex.Message);
+            }
+
+        }
+
         private void BUT_videostart_Click(object sender, EventArgs e)
         {
             if (MainV2.MONO)
@@ -191,6 +225,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
         }
 
+        private void Vid2Stop_Click(object sender, EventArgs e)
+        {
+            Vid2Start.Enabled = true;
+            if (MainV2.secondaryCam != null)
+            {
+                MainV2.secondaryCam.Dispose();
+                MainV2.secondaryCam = null;
+            }
+        }
         private void BUT_videostop_Click(object sender, EventArgs e)
         {
             BUT_videostart.Enabled = true;
@@ -272,6 +315,84 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 try
                 {
                     CMB_videoresolutions.SelectedIndex = Settings.Instance.GetInt32("video_options");
+                }
+                catch
+                {
+                } // ignore bad entries
+            }
+        }
+
+        private void CMB_SecondaryVideo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MainV2.MONO)
+                return;
+
+            int hr;
+            int count;
+            int size;
+            object o;
+            IBaseFilter capFilter = null;
+            ICaptureGraphBuilder2 capGraph = null;
+            AMMediaType media = null;
+            VideoInfoHeader v;
+            VideoStreamConfigCaps c;
+            var modes = new List<GCSBitmapInfo>();
+
+            // Get the ICaptureGraphBuilder2
+            capGraph = (ICaptureGraphBuilder2) new CaptureGraphBuilder2();
+            var m_FilterGraph = (IFilterGraph2) new FilterGraph();
+
+            DsDevice[] capDevices;
+            capDevices = DsDevice.GetDevicesOfCat(FilterCategory.VideoInputDevice);
+
+            // Add the video device
+            hr = m_FilterGraph.AddSourceFilterForMoniker(capDevices[CMB_SecondaryVideo.SelectedIndex].Mon, null,
+                "Video input", out capFilter);
+            try
+            {
+                DsError.ThrowExceptionForHR(hr);
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show("Can not add video source\n" + ex);
+                return;
+            }
+
+            // Find the stream config interface
+            hr = capGraph.FindInterface(PinCategory.Capture, MediaType.Video, capFilter, typeof (IAMStreamConfig).GUID,
+                out o);
+            DsError.ThrowExceptionForHR(hr);
+
+            var videoStreamConfig = o as IAMStreamConfig;
+            if (videoStreamConfig == null)
+            {
+                CustomMessageBox.Show("Failed to get IAMStreamConfig");
+                return;
+            }
+
+            hr = videoStreamConfig.GetNumberOfCapabilities(out count, out size);
+            DsError.ThrowExceptionForHR(hr);
+            var TaskMemPointer = Marshal.AllocCoTaskMem(size);
+            for (var i = 0; i < count; i++)
+            {
+                var ptr = IntPtr.Zero;
+
+                hr = videoStreamConfig.GetStreamCaps(i, out media, TaskMemPointer);
+                v = (VideoInfoHeader) Marshal.PtrToStructure(media.formatPtr, typeof (VideoInfoHeader));
+                c = (VideoStreamConfigCaps) Marshal.PtrToStructure(TaskMemPointer, typeof (VideoStreamConfigCaps));
+                modes.Add(new GCSBitmapInfo(v.BmiHeader.Width, v.BmiHeader.Height, c.MaxFrameInterval,
+                    c.VideoStandard.ToString(), media));
+            }
+            Marshal.FreeCoTaskMem(TaskMemPointer);
+            DsUtils.FreeAMMediaType(media);
+
+            CMB_videoresolutions.DataSource = modes;
+
+            if (Settings.Instance["secondary_video_options"] != "" && CMB_videosources.Text != "")
+            {
+                try
+                {
+                    CMB_videoresolutions.SelectedIndex = Settings.Instance.GetInt32("secondary_video_options");
                 }
                 catch
                 {
@@ -390,28 +511,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     return;
                 Settings.Instance["speechcustom"] = speechstring;
             }
-        }
-
-        private void BUT_rerequestparams_Click(object sender, EventArgs e)
-        {
-            if (!MainV2.comPort.BaseStream.IsOpen)
-                return;
-            ((MyButton) sender).Enabled = false;
-            try
-            {
-                MainV2.comPort.getParamList();
-            }
-            catch
-            {
-                CustomMessageBox.Show("Error: getting param list");
-            }
-
-
-            ((MyButton) sender).Enabled = true;
-            startup = true;
-
-
-            startup = false;
         }
 
         private void CHK_speechbattery_CheckedChanged(object sender, EventArgs e)
@@ -621,6 +720,19 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 CMB_osdcolor.Font, brush, rect.X + 35, rect.Top + rect.Height - CMB_osdcolor.Font.Height);
         }
 
+        private void CMB_secondaryVideo_Click(object sender, EventArgs e)
+        {
+            if (MainV2.MONO)
+                return;
+            // the reason why i dont populate this list is because on linux/mac this call will fail.
+            var capt = new Capture();
+
+            var devices = WebCamService.Capture.getDevices();
+
+            CMB_SecondaryVideo.DataSource = devices;
+
+            capt.Dispose();
+        }
         private void CMB_videosources_Click(object sender, EventArgs e)
         {
             if (MainV2.MONO)
@@ -660,15 +772,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 txt_log_dir.Text = ofd.SelectedPath;
-            }
-        }
-
-        private void OnLogDirTextChanged(object sender, EventArgs e)
-        {
-            string path = txt_log_dir.Text;
-            if (!string.IsNullOrEmpty(path) && System.IO.Directory.Exists(path))
-            {
-                Settings.Instance.LogDir = path;
             }
         }
 
@@ -867,5 +970,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         {
             Settings.Instance["norcreceiver"] = chk_norcreceiver.Checked.ToString();
         }
+
     }
 }
