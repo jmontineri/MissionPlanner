@@ -8,8 +8,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlightData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.hud1 = new MissionPlanner.Controls.HUD();
             this.contextMenuStripHud = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.videoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,7 +164,20 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.MapVsMisc = new System.Windows.Forms.SplitContainer();
             this.swapWithMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hud2 = new MissionPlanner.Controls.HUD();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStripHud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceHud)).BeginInit();
             this.tabControlactions.SuspendLayout();
@@ -200,6 +213,7 @@
             this.InfoBarVsDisplayHotbar.Panel2.SuspendLayout();
             this.InfoBarVsDisplayHotbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HotbarVsDisplay)).BeginInit();
+            this.HotbarVsDisplay.Panel1.SuspendLayout();
             this.HotbarVsDisplay.Panel2.SuspendLayout();
             this.HotbarVsDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HudVsMapMisc)).BeginInit();
@@ -218,6 +232,8 @@
             this.MapVsMisc.Panel1.SuspendLayout();
             this.MapVsMisc.Panel2.SuspendLayout();
             this.MapVsMisc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // hud1
@@ -1756,7 +1772,7 @@
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 360D;
+            this.windDir1.Direction = 180D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -1944,8 +1960,8 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
             this.dataGridViewImageColumn1.Image = global::MissionPlanner.Properties.Resources.up;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -1953,8 +1969,8 @@
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
             this.dataGridViewImageColumn2.Image = global::MissionPlanner.Properties.Resources.down;
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
@@ -1987,6 +2003,10 @@
             resources.ApplyResources(this.HotbarVsDisplay, "HotbarVsDisplay");
             this.HotbarVsDisplay.Name = "HotbarVsDisplay";
             // 
+            // HotbarVsDisplay.Panel1
+            // 
+            this.HotbarVsDisplay.Panel1.Controls.Add(this.toolStrip1);
+            // 
             // HotbarVsDisplay.Panel2
             // 
             this.HotbarVsDisplay.Panel2.Controls.Add(this.HudVsMapMisc);
@@ -2011,7 +2031,7 @@
             // 
             // CamVsMessages.Panel1
             // 
-            this.CamVsMessages.Panel1.Controls.Add(this.hud2);
+            this.CamVsMessages.Panel1.Controls.Add(this.pictureBox1);
             // 
             // CamVsMessages.Panel2
             // 
@@ -2048,96 +2068,109 @@
             this.swapWithMapToolStripMenuItem.Name = "swapWithMapToolStripMenuItem";
             resources.ApplyResources(this.swapWithMapToolStripMenuItem, "swapWithMapToolStripMenuItem");
             // 
-            // hud2
+            // pictureBox1
             // 
-            this.hud2.airspeed = 0F;
-            this.hud2.alt = 0F;
-            this.hud2.BackColor = System.Drawing.Color.Black;
-            this.hud2.batterylevel = 0F;
-            this.hud2.batteryremaining = 0F;
-            this.hud2.bgimage = null;
-            this.hud2.connected = false;
-            this.hud2.ContextMenuStrip = this.contextMenuStripHud;
-            this.hud2.current = 0F;
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("airspeed", this.bindingSourceHud, "airspeed", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("alt", this.bindingSourceHud, "alt", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("batterylevel", this.bindingSourceHud, "battery_voltage", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("batteryremaining", this.bindingSourceHud, "battery_remaining", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("connected", this.bindingSourceHud, "connected", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("current", this.bindingSourceHud, "current", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("datetime", this.bindingSourceHud, "datetime", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("disttowp", this.bindingSourceHud, "wp_dist", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("ekfstatus", this.bindingSourceHud, "ekfstatus", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("failsafe", this.bindingSourceHud, "failsafe", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("gpsfix", this.bindingSourceHud, "gpsstatus", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("gpsfix2", this.bindingSourceHud, "gpsstatus2", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("gpshdop", this.bindingSourceHud, "gpshdop", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("gpshdop2", this.bindingSourceHud, "gpshdop2", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("groundalt", this.bindingSourceHud, "HomeAlt", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("groundcourse", this.bindingSourceHud, "groundcourse", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("groundspeed", this.bindingSourceHud, "groundspeed", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("heading", this.bindingSourceHud, "yaw", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("linkqualitygcs", this.bindingSourceHud, "linkqualitygcs", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("message", this.bindingSourceHud, "messageHigh", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("messagetime", this.bindingSourceHud, "messageHighTime", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("mode", this.bindingSourceHud, "mode", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("navpitch", this.bindingSourceHud, "nav_pitch", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("navroll", this.bindingSourceHud, "nav_roll", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("pitch", this.bindingSourceHud, "pitch", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("roll", this.bindingSourceHud, "roll", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("status", this.bindingSourceHud, "armed", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("targetalt", this.bindingSourceHud, "targetalt", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("targetheading", this.bindingSourceHud, "nav_bearing", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("targetspeed", this.bindingSourceHud, "targetairspeed", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("turnrate", this.bindingSourceHud, "turnrate", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("verticalspeed", this.bindingSourceHud, "verticalspeed", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("vibex", this.bindingSourceHud, "vibex", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("vibey", this.bindingSourceHud, "vibey", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("vibez", this.bindingSourceHud, "vibez", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("wpno", this.bindingSourceHud, "wpno", true));
-            this.hud2.DataBindings.Add(new System.Windows.Forms.Binding("xtrack_error", this.bindingSourceHud, "xtrack_error", true));
-            this.hud2.datetime = new System.DateTime(((long)(0)));
-            this.hud2.disttowp = 0F;
-            resources.ApplyResources(this.hud2, "hud2");
-            this.hud2.ekfstatus = 0F;
-            this.hud2.failsafe = false;
-            this.hud2.gpsfix = 0F;
-            this.hud2.gpsfix2 = 0F;
-            this.hud2.gpshdop = 0F;
-            this.hud2.gpshdop2 = 0F;
-            this.hud2.groundalt = 0F;
-            this.hud2.groundcourse = 0F;
-            this.hud2.groundspeed = 0F;
-            this.hud2.heading = 0F;
-            this.hud2.hudcolor = System.Drawing.Color.LightGray;
-            this.hud2.linkqualitygcs = 0F;
-            this.hud2.lowairspeed = false;
-            this.hud2.lowgroundspeed = false;
-            this.hud2.lowvoltagealert = false;
-            this.hud2.message = "";
-            this.hud2.messagetime = new System.DateTime(((long)(0)));
-            this.hud2.mode = "Unknown";
-            this.hud2.Name = "hud2";
-            this.hud2.navpitch = 0F;
-            this.hud2.navroll = 0F;
-            this.hud2.opengl = false;
-            this.hud2.pitch = 0F;
-            this.hud2.roll = 0F;
-            this.hud2.Russian = false;
-            this.hud2.status = false;
-            this.hud2.streamjpg = null;
-            this.hud2.targetalt = 0F;
-            this.hud2.targetheading = 0F;
-            this.hud2.targetspeed = 0F;
-            this.hud2.turnrate = 0F;
-            this.hud2.UseOpenGL = false;
-            this.hud2.VSync = false;
-            this.hud2.verticalspeed = 0F;
-            this.hud2.vibex = 0F;
-            this.hud2.vibey = 0F;
-            this.hud2.vibez = 0F;
-            this.hud2.wpno = 0;
-            this.hud2.xtrack_error = 0F;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.AllowItemReorder = true;
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
+            this.toolStrip1.CanOverflow = false;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton16,
+            this.toolStripButton15,
+            this.toolStripButton14,
+            this.toolStripButton13,
+            this.toolStripButton12,
+            this.toolStripButton11,
+            this.toolStripButton7,
+            this.toolStripButton2,
+            this.toolStripButton1,
+            this.toolStripButton8,
+            this.toolStripButton9,
+            this.toolStripButton10});
+            this.toolStrip1.Name = "toolStrip1";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton7, "toolStripButton7");
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton8, "toolStripButton8");
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton9, "toolStripButton9");
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton10, "toolStripButton10");
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton11
+            // 
+            resources.ApplyResources(this.toolStripButton11, "toolStripButton11");
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton12
+            // 
+            resources.ApplyResources(this.toolStripButton12, "toolStripButton12");
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton13
+            // 
+            resources.ApplyResources(this.toolStripButton13, "toolStripButton13");
+            this.toolStripButton13.Name = "toolStripButton13";
+            this.toolStripButton13.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton14
+            // 
+            resources.ApplyResources(this.toolStripButton14, "toolStripButton14");
+            this.toolStripButton14.Name = "toolStripButton14";
+            this.toolStripButton14.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton15
+            // 
+            resources.ApplyResources(this.toolStripButton15, "toolStripButton15");
+            this.toolStripButton15.Name = "toolStripButton15";
+            this.toolStripButton15.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton16
+            // 
+            resources.ApplyResources(this.toolStripButton16, "toolStripButton16");
+            this.toolStripButton16.Name = "toolStripButton16";
+            this.toolStripButton16.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             // 
             // FlightData
             // 
@@ -2189,6 +2222,7 @@
             this.InfoBarVsDisplayHotbar.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InfoBarVsDisplayHotbar)).EndInit();
             this.InfoBarVsDisplayHotbar.ResumeLayout(false);
+            this.HotbarVsDisplay.Panel1.ResumeLayout(false);
             this.HotbarVsDisplay.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HotbarVsDisplay)).EndInit();
             this.HotbarVsDisplay.ResumeLayout(false);
@@ -2209,6 +2243,9 @@
             this.MapVsMisc.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MapVsMisc)).EndInit();
             this.MapVsMisc.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2370,6 +2407,19 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.SplitContainer MapVsMisc;
         private System.Windows.Forms.ToolStripMenuItem swapWithMapToolStripMenuItem;
-        private Controls.HUD hud2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton16;
+        private System.Windows.Forms.ToolStripButton toolStripButton15;
+        private System.Windows.Forms.ToolStripButton toolStripButton14;
+        private System.Windows.Forms.ToolStripButton toolStripButton13;
+        private System.Windows.Forms.ToolStripButton toolStripButton12;
+        private System.Windows.Forms.ToolStripButton toolStripButton11;
+        private System.Windows.Forms.ToolStripButton toolStripButton10;
+        private System.Windows.Forms.ToolStripButton toolStripButton9;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
